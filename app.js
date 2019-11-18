@@ -11,7 +11,7 @@ activePlayer = 0;
 //document.querySelector('#current-'+ activePlayer).innerHTML = '<em>' + dice +'</em>' 
 
 // permet de modifier le css ici ne plus afficher l'image
-document.querySelector('.dice').style.display = 'none'; 
+//document.querySelector('.dice').style.display = 'none'; 
 
 document.querySelector('#score-0').textContent = '0';
 document.querySelector('#score-1').textContent = '0';
@@ -22,7 +22,7 @@ document.querySelector('#current-1').textContent = '0';
 document.querySelector('.btn-roll').addEventListener('click', function(){
 
     //1. Random number
-    dice = Math.floor(Math.random()*6)+1;
+    let dice = Math.floor(Math.random()*6)+1;
 
     //2. Display the result
     let diceDOM = document.querySelector('.dice');
@@ -39,21 +39,21 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
         nextPlayer();
 
     }
-} )
+} );
 
 
 // quand je click sur le bouton hold
-document.querySelector('.btn-roll').addEventListener('click', function(){
+document.querySelector('.btn-hold').addEventListener('click', function(){
 
     // Add CURRENT score to global score
     scores[activePlayer] += roundScore;
 
     // Update UI
-    document.querySelector('#score' + activePlayer).textContent = scores[activePlayer];
+    document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
     // Check if the player won the game
     if(scores[activePlayer] >= 100){
-        document.querySelector('#name'+activePlayer).textContent = 'Winner !';
+        document.querySelector('#name-'+activePlayer).textContent = 'Winner !';
         document.querySelector('.dice').style.display = 'none';
         document.querySelector('.player-'+activePlayer+'-panel').classList.add('winner');
         document.querySelector('.player-'+activePlayer+'-panel').classList.remove('active');
@@ -63,7 +63,7 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     }
     
    
-})
+});
 
 function nextPlayer(){
     //Next player
