@@ -16,7 +16,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
     if (gamePlaying) {
         //1. Random number
-        let dice = Math.floor(Math.random() * 6) + 1;
+        let dice = Math.floor(Math.random() * 7) + 1;
 
         //2. Display the result
         let diceDOM = document.querySelector('.dice');
@@ -98,7 +98,7 @@ function nextPlayer() {
     document.querySelector('.player-1-panel').classList.toggle('active');
 
     // permet de modifier le css ici ne plus afficher l'image
-    document.querySelector('.dice').style.display = 'none';
+    //document.querySelector('.dice').style.display = 'none';
 }
 
 document.querySelector('.btn-new').addEventListener('click', init);
